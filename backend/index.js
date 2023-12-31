@@ -3,7 +3,7 @@ import mysql from "mysql2";
 
 const app = express();
 const port = 8800;
-const serverUrl = `http://localhost:${port}`
+const serverUrl = `http://localhost:${port}`;
 const db = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -11,19 +11,30 @@ const db = mysql.createConnection({
   database: "bookshelf",
 });
 
-app.get("/", ( req, res ) => {
-    res.json("hello this is the backend")
-})
+app.get("/", (req, res) => {
+  res.json("hello this is the backend");
+});
 
-app.get("/books", ( req, res ) => {
-    const q = "SELECT * FROM books"
-    db.query(q,(err,data) => {
-        if(err) return res.json(err)
-        return res.json(data)
-    })
-})
+app.get("/books", (req, res) => {
+  const q = "SELECT * FROM books";
+  db.query(q, (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
 
-
+app.post("/books", (req, res) => {
+  const q = "INSERT INTO books (`title`,`desc`,`cover`) VALUES (?)";
+  const values = [
+    "title from backend",
+    "desc from backend",
+    "cover img from backend",
+  ];
+  db.query(q, [values], (err, data) => {
+    if (err) return res.json(err);
+    return res.json(data);
+  });
+});
 
 app.listen(port, () => {
   console.log(`Server running at ${serverUrl}`);
