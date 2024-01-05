@@ -24,14 +24,14 @@ const Books = () => {
     }
   };
   return (
-    <div>
+    <section>
       <h1>Page Turner Portal</h1>
       <div className="books">
         {books.map((book) => (
           <div key={book.id} className="book">
             <img src={book.cover} alt="Cover of book" />
-            <h2>{book.title}</h2>
-            <p>{book.desc}</p>
+            <h2>Title: {book.title}</h2>
+            <p>Description {book.desc}</p>
             <span>${book.price}</span>
             <button className="delete" onClick={() => handleDelete(book.id)}>
               Delete
@@ -43,7 +43,7 @@ const Books = () => {
       <button>
         <Link to="/add">Add new book</Link>
       </button>
-    </div>
+    </section>
   );
 };
 export default Books;
