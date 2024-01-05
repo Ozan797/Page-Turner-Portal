@@ -25,7 +25,7 @@ const Books = () => {
   };
   return (
     <div>
-      <h1>Lama Book Shop</h1>
+      <h1>Page Turner Portal</h1>
       <div className="books">
         {books.map((book) => (
           <div key={book.id} className="book">
@@ -36,6 +36,7 @@ const Books = () => {
             <button className="delete" onClick={() => handleDelete(book.id)}>
               Delete
             </button>
+            <button className="update"><Link to={`/update/${book.id}`}>Update</Link></button>
           </div>
         ))}
       </div>
