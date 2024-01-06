@@ -30,13 +30,22 @@ const Books = () => {
         {books.map((book) => (
           <div key={book.id} className="book">
             <img src={book.cover} alt="Cover of book" />
-            <h2>Title: {book.title}</h2>
-            <p>Description {book.desc}</p>
-            <span>${book.price}</span>
-            <button className="delete" onClick={() => handleDelete(book.id)}>
-              Delete
-            </button>
-            <button className="update"><Link to={`/update/${book.id}`}>Update</Link></button>
+            <h2>{book.title}</h2>
+            <p>{book.desc}</p>
+            <div className="card">
+              <span>${book.price}</span>
+              <div className="buttons">
+                <button
+                  className="delete"
+                  onClick={() => handleDelete(book.id)}
+                >
+                  Delete
+                </button>
+                <button className="update">
+                  <Link to={`/update/${book.id}`}>Update</Link>
+                </button>
+              </div>
+            </div>
           </div>
         ))}
       </div>

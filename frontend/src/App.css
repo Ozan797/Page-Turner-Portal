@@ -1,15 +1,14 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 section {
-  background-color: green;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 img {
   width: 250px;
+  height: 350px;
 }
 
 .delete {
@@ -23,5 +22,25 @@ img {
 .books {
   display: flex;
   justify-content: center;
-  max-width: 700px;
+  align-items: start;
+  text-align: center;
+  max-width: 1500px;
+  flex-wrap: wrap;
+}
+.book {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  padding: 10px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons button {
+  margin: 10px;
 }
